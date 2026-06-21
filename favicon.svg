@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Sakura cherry neon icon">
+  <defs>
+    <radialGradient id="whiteGlow" cx="38%" cy="28%" r="74%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="48%" stop-color="#fff7fd"/>
+      <stop offset="100%" stop-color="#ffd7f2"/>
+    </radialGradient>
+    <linearGradient id="night" x1="12%" y1="0%" x2="88%" y2="100%">
+      <stop offset="0%" stop-color="#15051d"/>
+      <stop offset="48%" stop-color="#08030d"/>
+      <stop offset="100%" stop-color="#23051f"/>
+    </linearGradient>
+    <linearGradient id="cherry" x1="18%" y1="8%" x2="82%" y2="92%">
+      <stop offset="0%" stop-color="#ffb7ea"/>
+      <stop offset="42%" stop-color="#ff4fc3"/>
+      <stop offset="100%" stop-color="#e4007f"/>
+    </linearGradient>
+    <linearGradient id="stem" x1="16%" y1="14%" x2="92%" y2="84%">
+      <stop offset="0%" stop-color="#5cffdf"/>
+      <stop offset="58%" stop-color="#2ff4a0"/>
+      <stop offset="100%" stop-color="#ffe66d"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="26" stdDeviation="28" flood-color="#ff1f9d" flood-opacity="0.34"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" rx="232" fill="url(#night)"/>
+  <path d="M96 760C260 820 414 816 554 768C704 717 816 734 928 806V928H96Z" fill="#ffffff" opacity="0.96"/>
+  <path d="M90 138C252 80 447 82 619 150C760 205 866 196 936 162" fill="none" stroke="#ff4fc3" stroke-width="34" opacity="0.16"/>
+  <path d="M90 138C252 80 447 82 619 150C760 205 866 196 936 162" fill="none" stroke="#ff4fc3" stroke-width="16" opacity="0.9"/>
+  <path d="M116 856C246 800 402 790 556 832C704 873 826 850 918 792" fill="none" stroke="#38e8ff" stroke-width="28" opacity="0.14"/>
+  <path d="M116 856C246 800 402 790 556 832C704 873 826 850 918 792" fill="none" stroke="#38e8ff" stroke-width="12" opacity="0.78"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M514 462C510 334 574 236 710 166" fill="none" stroke="url(#stem)" stroke-width="34" stroke-linecap="round"/>
+    <path d="M515 462C432 360 324 322 193 350" fill="none" stroke="url(#stem)" stroke-width="34" stroke-linecap="round"/>
+    <path d="M510 467C538 340 502 246 402 184" fill="none" stroke="#49f9bf" stroke-width="22" stroke-linecap="round" opacity="0.92"/>
+
+    <circle cx="382" cy="590" r="198" fill="#ff1f9d" opacity="0.2"/>
+    <circle cx="638" cy="608" r="210" fill="#ff1f9d" opacity="0.2"/>
+    <circle cx="382" cy="590" r="174" fill="#ff2eac"/>
+    <circle cx="638" cy="608" r="184" fill="#ff2eac"/>
+    <circle cx="334" cy="530" r="48" fill="#ffffff" opacity="0.9"/>
+    <circle cx="584" cy="538" r="52" fill="#ffffff" opacity="0.92"/>
+    <path d="M421 748C488 786 565 782 623 740" fill="none" stroke="#fff7fd" stroke-width="14" stroke-linecap="round" opacity="0.58"/>
+  </g>
+
+  <g opacity="0.72">
+    <path d="M220 214h72M238 178v72M792 292h58M821 263v58" stroke="#ffffff" stroke-width="26" stroke-linecap="round" opacity="0.16"/>
+    <path d="M220 214h72M238 178v72M792 292h58M821 263v58" stroke="#ffffff" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="790" cy="196" r="10" fill="#ffd36a"/>
+    <circle cx="170" cy="724" r="8" fill="#38e8ff"/>
+    <circle cx="850" cy="702" r="7" fill="#ff4fc3"/>
+  </g>
+</svg>

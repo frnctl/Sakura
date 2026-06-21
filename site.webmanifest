@@ -1,0 +1,24 @@
+{
+  "name": "Sakura Nagatsuka",
+  "short_name": "Sakura",
+  "description": "Official links for Sakura Nagatsuka",
+  "start_url": "/Sakura/",
+  "scope": "/Sakura/",
+  "display": "standalone",
+  "background_color": "#09040d",
+  "theme_color": "#09040d",
+  "icons": [
+    {
+      "src": "/Sakura/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Sakura/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
