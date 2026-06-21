@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sakura Nagatsuka</title>
+  <meta name="description" content="Official links for Sakura Nagatsuka">
+  <meta name="theme-color" content="#09040d">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sakura Nagatsuka">
+  <meta property="og:description" content="Official links for Sakura Nagatsuka">
+  <meta property="og:site_name" content="Sakura Nagatsuka">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sakura Nagatsuka">
+  <meta name="twitter:description" content="Official links for Sakura Nagatsuka">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #fff7fd;
+      --muted: #cdb9d6;
+      --dim: #8f789e;
+      --night: #09040d;
+      --panel: rgba(20, 10, 29, 0.78);
+      --panel-strong: rgba(33, 13, 45, 0.9);
+      --line: rgba(255, 132, 219, 0.26);
+      --pink: #ff4fc3;
+      --hot: #ff1f9d;
+      --cyan: #38e8ff;
+      --gold: #ffd36a;
+      --shadow: 0 26px 80px rgba(255, 31, 157, 0.18);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--night);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 18% 8%, rgba(255, 79, 195, 0.24), transparent 28%),
+        radial-gradient(circle at 84% 18%, rgba(56, 232, 255, 0.16), transparent 26%),
+        linear-gradient(145deg, #08040d 0%, #16071f 48%, #09040d 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, transparent 0 42%, rgba(255, 79, 195, 0.08) 42% 43%, transparent 43% 100%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 76px),
+        repeating-linear-gradient(0deg, transparent 0 18px, rgba(255, 79, 195, 0.035) 18px 19px);
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.18));
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 34vh;
+      pointer-events: none;
+      background:
+        linear-gradient(to top, rgba(255, 31, 157, 0.18), transparent 72%),
+        linear-gradient(90deg, transparent 0 8%, rgba(56, 232, 255, 0.12) 8% 9%, transparent 9% 18%, rgba(255, 79, 195, 0.18) 18% 19%, transparent 19% 33%, rgba(255, 211, 106, 0.12) 33% 34%, transparent 34% 100%);
+      opacity: 0.78;
+    }
+
+    .stage {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      min-height: 100vh;
+      place-items: center;
+      padding: 28px 16px;
+    }
+
+    .hero {
+      width: min(100%, 520px);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(160deg, var(--panel), rgba(12, 6, 19, 0.88));
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(22px);
+      overflow: hidden;
+    }
+
+    .skyline {
+      position: relative;
+      height: 132px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(to top, rgba(9, 4, 13, 0.98), transparent 68%),
+        radial-gradient(circle at 70% 28%, rgba(255, 79, 195, 0.42), transparent 18%),
+        linear-gradient(135deg, rgba(56, 232, 255, 0.16), rgba(255, 31, 157, 0.18));
+      overflow: hidden;
+    }
+
+    .skyline::before,
+    .skyline::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 82px;
+      background:
+        linear-gradient(to top, #0a0610 0 100%) left bottom / 13% 58% no-repeat,
+        linear-gradient(to top, #110718 0 100%) 14% bottom / 9% 78% no-repeat,
+        linear-gradient(to top, #08040d 0 100%) 25% bottom / 16% 48% no-repeat,
+        linear-gradient(to top, #13081c 0 100%) 43% bottom / 12% 68% no-repeat,
+        linear-gradient(to top, #08040d 0 100%) 57% bottom / 10% 84% no-repeat,
+        linear-gradient(to top, #12071a 0 100%) 70% bottom / 17% 56% no-repeat,
+        linear-gradient(to top, #09040d 0 100%) 90% bottom / 12% 74% no-repeat;
+      filter: drop-shadow(0 -8px 22px rgba(255, 79, 195, 0.24));
+    }
+
+    .skyline::after {
+      inset: 0;
+      height: auto;
+      background:
+        linear-gradient(90deg, transparent 0 24%, rgba(56, 232, 255, 0.78) 24% 25%, transparent 25% 52%, rgba(255, 79, 195, 0.82) 52% 53%, transparent 53% 79%, rgba(255, 211, 106, 0.72) 79% 80%, transparent 80%),
+        repeating-linear-gradient(0deg, transparent 0 13px, rgba(255, 255, 255, 0.06) 13px 14px);
+      mix-blend-mode: screen;
+      opacity: 0.64;
+    }
+
+    .content {
+      padding: 26px 22px 20px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .label {
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .lang {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+      padding: 3px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .lang button {
+      min-width: 66px;
+      min-height: 34px;
+      border: 0;
+      border-radius: 999px;
+      color: var(--muted);
+      background: transparent;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .lang button[aria-pressed="true"] {
+      color: #140818;
+      background: linear-gradient(135deg, var(--pink), #ffd1f0);
+      box-shadow: 0 0 22px rgba(255, 79, 195, 0.34);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.35rem, 12vw, 4.8rem);
+      line-height: 0.88;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .jp-name {
+      margin: 10px 0 0;
+      color: var(--pink);
+      font-size: clamp(1.25rem, 7vw, 2rem);
+      font-weight: 800;
+      text-shadow: 0 0 24px rgba(255, 79, 195, 0.62);
+    }
+
+    .tagline {
+      margin: 24px 0 0;
+      color: var(--ink);
+      font-size: 1.1rem;
+      font-weight: 760;
+      line-height: 1.35;
+    }
+
+    .subline {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .links {
+      display: grid;
+      gap: 12px;
+      margin: 28px 0 0;
+    }
+
+    .link {
+      display: grid;
+      grid-template-columns: 42px 1fr 22px;
+      align-items: center;
+      gap: 12px;
+      min-height: 62px;
+      padding: 10px 14px 10px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 8px;
+      color: var(--ink);
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 79, 195, 0.06));
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .link:focus-visible,
+    .link:hover {
+      outline: 0;
+      transform: translateY(-2px);
+      border-color: rgba(255, 79, 195, 0.74);
+      background: linear-gradient(135deg, rgba(255, 79, 195, 0.22), rgba(56, 232, 255, 0.08));
+    }
+
+    .icon {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 8px;
+      color: #120818;
+      background: linear-gradient(135deg, var(--pink), #ffd1f0);
+      font-weight: 900;
+      box-shadow: 0 0 26px rgba(255, 79, 195, 0.34);
+    }
+
+    .link:nth-child(2) .icon {
+      background: linear-gradient(135deg, #35ff95, #d9ffe9);
+    }
+
+    .link:nth-child(3) .icon {
+      background: linear-gradient(135deg, #f0f3ff, #ff7ccf);
+    }
+
+    .link:nth-child(4) .icon {
+      background: linear-gradient(135deg, #ffd36a, #ff4fc3);
+    }
+
+    .copy {
+      min-width: 0;
+    }
+
+    .name {
+      display: block;
+      font-size: 1rem;
+      font-weight: 850;
+      line-height: 1.15;
+    }
+
+    .desc {
+      display: block;
+      margin-top: 4px;
+      color: var(--dim);
+      font-size: 0.84rem;
+      line-height: 1.28;
+    }
+
+    .arrow {
+      color: var(--pink);
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+      color: rgba(255, 247, 253, 0.52);
+      font-size: 0.75rem;
+      font-weight: 750;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    [data-lang="ja"] {
+      display: none;
+    }
+
+    body.lang-ja [data-lang="en"] {
+      display: none;
+    }
+
+    body.lang-ja [data-lang="ja"] {
+      display: revert;
+    }
+
+    body.lang-ja .link [data-lang="ja"],
+    body.lang-ja p[data-lang="ja"] {
+      display: block;
+    }
+
+    @media (min-width: 720px) {
+      .stage {
+        padding: 48px 20px;
+      }
+
+      .hero {
+        width: min(100%, 620px);
+      }
+
+      .skyline {
+        height: 168px;
+      }
+
+      .content {
+        padding: 34px 34px 26px;
+      }
+
+      .links {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <section class="hero" aria-label="Official links for Sakura Nagatsuka">
+      <div class="skyline" aria-hidden="true"></div>
+      <div class="content">
+        <div class="topbar">
+          <div class="label">Official Links</div>
+          <div class="lang" aria-label="Language switch">
+            <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-set-lang="ja" aria-pressed="false">日本語</button>
+          </div>
+        </div>
+
+        <h1>Sakura Nagatsuka</h1>
+        <p class="jp-name" lang="ja">桜 長塚</p>
+        <p class="tagline" data-lang="en">City pop glow from Tokyo to Paris</p>
+        <p class="subline" data-lang="en">Official music socials and releases</p>
+        <p class="tagline" data-lang="ja" lang="ja">東京からパリへ響くシティポップ</p>
+        <p class="subline" data-lang="ja" lang="ja">公式音楽リンクとSNSはこちら</p>
+
+        <nav class="links" aria-label="Sakura Nagatsuka links">
+          <a class="link" href="https://www.tiktok.com/" rel="noopener noreferrer" target="_blank">
+            <span class="icon" aria-hidden="true">T</span>
+            <span class="copy">
+              <span class="name">TikTok</span>
+              <span class="desc" data-lang="en">Watch Sakura</span>
+              <span class="desc" data-lang="ja" lang="ja">サクラを見る</span>
+            </span>
+            <span class="arrow" aria-hidden="true">›</span>
+          </a>
+
+          <a class="link" href="https://open.spotify.com/" rel="noopener noreferrer" target="_blank">
+            <span class="icon" aria-hidden="true">S</span>
+            <span class="copy">
+              <span class="name">Spotify</span>
+              <span class="desc" data-lang="en">Listen to music</span>
+              <span class="desc" data-lang="ja" lang="ja">楽曲を聴く</span>
+            </span>
+            <span class="arrow" aria-hidden="true">›</span>
+          </a>
+
+          <a class="link" href="https://music.apple.com/" rel="noopener noreferrer" target="_blank">
+            <span class="icon" aria-hidden="true">A</span>
+            <span class="copy">
+              <span class="name">Apple Music</span>
+              <span class="desc" data-lang="en">Listen in high quality</span>
+              <span class="desc" data-lang="ja" lang="ja">高音質で聴く</span>
+            </span>
+            <span class="arrow" aria-hidden="true">›</span>
+          </a>
+
+          <a class="link" href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">
+            <span class="icon" aria-hidden="true">I</span>
+            <span class="copy">
+              <span class="name">Instagram</span>
+              <span class="desc" data-lang="en">Photos and universe</span>
+              <span class="desc" data-lang="ja" lang="ja">写真と世界観</span>
+            </span>
+            <span class="arrow" aria-hidden="true">›</span>
+          </a>
+        </nav>
+
+        <footer>RDF Records</footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll("[data-set-lang]");
+    const setLanguage = (language) => {
+      document.documentElement.lang = language === "ja" ? "ja" : "en";
+      document.body.classList.toggle("lang-ja", language === "ja");
+      buttons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.setLang === language));
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+    });
+  </script>
+</body>
+</html>
