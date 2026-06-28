@@ -1025,15 +1025,21 @@
             <span class="gallery-sub" data-lang="ja" lang="ja">パリと東京の夜</span>
           </div>
           <div class="gallery-grid">
-            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/paris-1.jpg">
-              <img src="/Sakura/assets/gallery/paris-1.jpg" width="1080" height="1080" alt="Sakura at Place de la Concorde, Paris night" loading="lazy" decoding="async">
-            </button>
-            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/paris-2.jpg">
-              <img src="/Sakura/assets/gallery/paris-2.jpg" width="1080" height="1080" alt="Sakura on a Paris café street at night" loading="lazy" decoding="async">
-            </button>
-            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/paris-3.jpg">
-              <img src="/Sakura/assets/gallery/paris-3.jpg" width="852" height="1280" alt="Sakura under a temple lantern at night" loading="lazy" decoding="async">
-            </button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/paris-1.jpg"><img src="/Sakura/assets/gallery/paris-1.jpg" alt="Sakura at Place de la Concorde, Paris night" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/paris-2.jpg"><img src="/Sakura/assets/gallery/paris-2.jpg" alt="Sakura on a Paris café street at night" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/paris-3.jpg"><img src="/Sakura/assets/gallery/paris-3.jpg" alt="Sakura under a temple lantern at night" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/tokyo-1.jpg"><img src="/Sakura/assets/gallery/tokyo-1.jpg" alt="Sakura at Shibuya crossing at night" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/tokyo-2.jpg"><img src="/Sakura/assets/gallery/tokyo-2.jpg" alt="Sakura in neon Tokyo at night" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/series-01.jpg"><img src="/Sakura/assets/gallery/series-01.jpg" alt="Sakura smiling in Shibuya" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/series-02.jpg"><img src="/Sakura/assets/gallery/series-02.jpg" alt="Sakura winking at a konbini" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/series-03.jpg"><img src="/Sakura/assets/gallery/series-03.jpg" alt="Sakura in the studio" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/series-04.jpg"><img src="/Sakura/assets/gallery/series-04.jpg" alt="Sakura on a train platform" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/series-05.jpg"><img src="/Sakura/assets/gallery/series-05.jpg" alt="Sakura laughing on a coastal road" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/series-06.jpg"><img src="/Sakura/assets/gallery/series-06.jpg" alt="Sakura with Mount Fuji" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/series-07.jpg"><img src="/Sakura/assets/gallery/series-07.jpg" alt="Sakura in Paris" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/series-08.jpg"><img src="/Sakura/assets/gallery/series-08.jpg" alt="Sakura at karaoke" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/series-09.jpg"><img src="/Sakura/assets/gallery/series-09.jpg" alt="Sakura at a record shop" loading="lazy" decoding="async"></button>
+            <button class="gallery-item" type="button" data-full="/Sakura/assets/gallery/series-10.jpg"><img src="/Sakura/assets/gallery/series-10.jpg" alt="Sakura in a rainy alley" loading="lazy" decoding="async"></button>
           </div>
         </section>
 
@@ -1164,6 +1170,12 @@
     (function () {
       const items = Array.from(document.querySelectorAll(".gallery-item"));
       if (!items.length) return;
+      const grid = document.querySelector(".gallery-grid");
+      for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+      }
+      items.forEach((b) => grid.appendChild(b));
       const lb = document.getElementById("lightbox");
       const img = document.getElementById("lightboxImg");
       const srcs = items.map((b) => b.dataset.full);
