@@ -258,8 +258,8 @@
 
     .single {
       display: grid;
-      grid-template-columns: 78px 1fr 26px;
-      align-items: center;
+      grid-template-columns: 78px 1fr;
+      align-items: start;
       gap: 16px;
       margin-top: 26px;
       padding: 14px;
@@ -274,20 +274,112 @@
       transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
     }
 
-    .single:focus-visible,
+    .single.is-playing,
     .single:hover {
-      outline: 0;
-      transform: translateY(-3px);
-      border-color: rgba(255, 79, 195, 0.85);
-      box-shadow: 0 0 46px rgba(255, 79, 195, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 79, 195, 0.7);
+      box-shadow: 0 0 46px rgba(255, 79, 195, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    }
+
+    .single-cover-btn {
+      position: relative;
+      width: 78px;
+      height: 78px;
+      padding: 0;
+      border: 0;
+      border-radius: 6px;
+      background: none;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
     }
 
     .single-cover {
+      display: block;
       width: 78px;
       height: 78px;
       border-radius: 6px;
       object-fit: cover;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    }
+
+    .play-icon {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 1.5rem;
+      background: rgba(8, 4, 13, 0.46);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+      transition: background 160ms ease;
+    }
+
+    .single-cover-btn:hover .play-icon,
+    .single-cover-btn:focus-visible .play-icon {
+      outline: 0;
+      background: rgba(8, 4, 13, 0.26);
+    }
+
+    .single.is-playing .single-cover-btn {
+      animation: coverpulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes coverpulse {
+      0%, 100% { box-shadow: 0 0 0 2px rgba(255, 79, 195, 0.5), 0 6px 22px rgba(255, 79, 195, 0.32); }
+      50% { box-shadow: 0 0 0 2px rgba(255, 79, 195, 0.9), 0 6px 32px rgba(255, 79, 195, 0.6); }
+    }
+
+    .player-bar {
+      position: relative;
+      height: 6px;
+      margin-top: 11px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.14);
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .player-bar:focus-visible {
+      outline: 2px solid rgba(255, 79, 195, 0.7);
+      outline-offset: 3px;
+    }
+
+    .player-progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--pink), var(--gold));
+      box-shadow: 0 0 12px rgba(255, 79, 195, 0.6);
+    }
+
+    .player-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 7px;
+      color: rgba(255, 247, 253, 0.62);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .single-full {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 9px;
+      color: var(--pink);
+      font-size: 0.82rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .single-full:hover,
+    .single-full:focus-visible {
+      outline: 0;
+      text-decoration: underline;
     }
 
     .single-copy {
@@ -597,17 +689,30 @@
         <p class="tagline" data-lang="ja" lang="ja">東京からパリへ響くシティポップ</p>
         <p class="subline" data-lang="ja" lang="ja">公式音楽リンクとSNSはこちら</p>
 
-        <a class="single" href="https://open.spotify.com/album/0PwZ6W0VBw2B5nGsIxb4g6?si=otcw6mgfQMKpZQfYNWB-0w" rel="noopener noreferrer" target="_blank">
-          <img class="single-cover" src="/Sakura/assets/karioka.jpg" width="78" height="78" alt="Karioka single cover" decoding="async">
+        <div class="single" id="kariokaPlayer">
+          <button class="single-cover-btn" type="button" aria-pressed="false" aria-label="Play Karioka preview">
+            <img class="single-cover" src="/Sakura/assets/karioka.jpg" width="78" height="78" alt="Karioka single cover" decoding="async">
+            <span class="play-icon" aria-hidden="true">▶</span>
+          </button>
           <span class="single-copy">
             <span class="single-kicker" data-lang="en">New Single</span>
             <span class="single-kicker" data-lang="ja" lang="ja">ニューシングル</span>
             <span class="single-title">Karioka</span>
-            <span class="single-desc" data-lang="en">Out now on Spotify</span>
-            <span class="single-desc" data-lang="ja" lang="ja">Spotifyで配信中</span>
+            <div class="player-bar" role="slider" tabindex="0" aria-label="Seek preview" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="player-progress"></div>
+            </div>
+            <div class="player-meta">
+              <span><span class="p-cur">0:00</span> / <span class="p-dur">0:45</span></span>
+              <span data-lang="en">Preview</span>
+              <span data-lang="ja" lang="ja">プレビュー</span>
+            </div>
+            <a class="single-full" href="https://open.spotify.com/album/0PwZ6W0VBw2B5nGsIxb4g6?si=otcw6mgfQMKpZQfYNWB-0w" rel="noopener noreferrer" target="_blank">
+              <span data-lang="en">▶ Full track on Spotify</span>
+              <span data-lang="ja" lang="ja">▶ Spotifyでフル再生</span>
+            </a>
           </span>
-          <span class="single-arrow" aria-hidden="true">›</span>
-        </a>
+          <audio class="single-audio" preload="none" src="/Sakura/assets/karioka-preview.mp3"></audio>
+        </div>
 
         <a class="playlist" href="https://open.spotify.com/playlist/45b5qUt14KU1qAkYledYMg?si=LFCgtCfMQmWIJFfG63GE-A&amp;pi=RC-X_DNZT82pe" rel="noopener noreferrer" target="_blank">
           <span class="playlist-icon" aria-hidden="true">▶</span>
@@ -694,6 +799,62 @@
       initial = (navigator.language || "").toLowerCase().startsWith("ja") ? "ja" : "en";
     }
     setLanguage(initial, false);
+
+    (function () {
+      const root = document.getElementById("kariokaPlayer");
+      if (!root) return;
+      const audio = root.querySelector(".single-audio");
+      const btn = root.querySelector(".single-cover-btn");
+      const icon = root.querySelector(".play-icon");
+      const bar = root.querySelector(".player-bar");
+      const prog = root.querySelector(".player-progress");
+      const cur = root.querySelector(".p-cur");
+      const dur = root.querySelector(".p-dur");
+      const fmt = (s) => {
+        s = Math.max(0, Math.floor(s || 0));
+        return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+      };
+      const render = (playing) => {
+        icon.textContent = playing ? "❚❚" : "▶";
+        btn.setAttribute("aria-pressed", String(playing));
+        btn.setAttribute("aria-label", (playing ? "Pause" : "Play") + " Karioka preview");
+        root.classList.toggle("is-playing", playing);
+      };
+      btn.addEventListener("click", () => {
+        if (audio.paused) audio.play(); else audio.pause();
+      });
+      audio.addEventListener("play", () => render(true));
+      audio.addEventListener("pause", () => render(false));
+      audio.addEventListener("ended", () => {
+        render(false);
+        prog.style.width = "0%";
+        cur.textContent = "0:00";
+        bar.setAttribute("aria-valuenow", "0");
+      });
+      audio.addEventListener("loadedmetadata", () => {
+        if (isFinite(audio.duration)) dur.textContent = fmt(audio.duration);
+      });
+      audio.addEventListener("timeupdate", () => {
+        const d = audio.duration || 45;
+        const p = Math.min(100, (audio.currentTime / d) * 100);
+        prog.style.width = p + "%";
+        cur.textContent = fmt(audio.currentTime);
+        bar.setAttribute("aria-valuenow", String(Math.round(p)));
+      });
+      const seek = (clientX) => {
+        const r = bar.getBoundingClientRect();
+        const ratio = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+        audio.currentTime = ratio * (audio.duration || 45);
+      };
+      bar.addEventListener("click", (e) => seek(e.clientX));
+      bar.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") { audio.currentTime = Math.min(audio.duration || 45, audio.currentTime + 3); }
+        else if (e.key === "ArrowLeft") { audio.currentTime = Math.max(0, audio.currentTime - 3); }
+        else if (e.key === " " || e.key === "Enter") { e.preventDefault(); btn.click(); }
+        else return;
+        e.preventDefault();
+      });
+    })();
   </script>
 </body>
 </html>
